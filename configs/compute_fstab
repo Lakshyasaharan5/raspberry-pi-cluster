@@ -1,0 +1,15 @@
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+192.168.1.1:/image/pi4    /             nfs     tcp,nolock,ro,v4   1       1
+proc                   /proc            proc    defaults           0       0
+none                   /tmp             tmpfs   defaults           0       0
+none                   /media           tmpfs   defaults           0       0
+none                   /var             tmpfs   defaults           0       0
+none                   /run             tmpfs   defaults           0       0
+192.168.1.1:/home      /home            nfs     tcp,nolock,rw,v4   0       0
+
+#############################################
+# 29May,2025 LS
+# Mount ssd partitions from head
+#############################################
+192.168.1.1:/software    /software    nfs    tcp,nolock,ro,v4,nofail,_netdev,x-systemd.automount    0    0
+192.168.1.1:/project     /project     nfs    tcp,nolock,rw,v4,nofail,_netdev,x-systemd.automount    0    0

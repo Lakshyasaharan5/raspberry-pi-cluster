@@ -1,0 +1,16 @@
+UUID=05fa8335-82c7-4c1d-b57a-5b6565c00cc4  / ext4    defaults,noatime 0 0
+UUID=ABC3-EED9  /boot vfat    defaults,noatime 0 0
+UUID=e92e62d3-b879-414d-97cb-47904a256f15  swap swap    defaults,noatime 0 0
+
+/dev /image/pi4/dev none defaults,rbind,rslave 0 0
+/proc /image/pi4/proc proc defaults 0 0
+/sys /image/pi4/sys none defaults,rbind,rslave 0 0
+/tmp /image/pi4/tmp none defaults,rbind 0 0
+
+############################################################################ 
+# 29May,2025 /LS 
+# Mount SSD partitions attached to head node safely or 
+# skip if not attached
+############################################################################
+UUID=0a72f6d2-f943-486a-a31d-7682727882ed  /project   ext4  defaults,nofail,x-systemd.device-timeout=10  0  0
+UUID=4aac8b8f-dce8-42c4-8060-90db82acd459  /software  ext4  defaults,nofail,x-systemd.device-timeout=10  0  0
