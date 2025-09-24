@@ -12,6 +12,7 @@ Full setup guide with commands and troubleshooting is available in the [document
 
 ## Architechture
 
+<img src="./docs/assets/cluster-stacked.jpg" width="50%">
 <img src="./docs/assets/cluster.jpg" width="50%">
 
 Cluster includes total of 5 nodes out of which one is "head" (controller node) and rest 4 are compute nodes. They are all connected via Network Switch with ethernet cables. Head node is connected to outside internet and compute nodes's wifi is blacklisted to avoid outside access. So there is just one point of entry in the cluster for security. I created a chroot environment on head node with a minimal RHEL 9 which is being served to all compute nodes via NFS. Head node is connected to high speed 2TB SSD which is also shared throughout the cluster. Each compute node as its own local storage mounted via 64GB SD cards. Its important so that compute nodes and store the results in its local instead of sending it to main ssd via ethernet which can be very slow. All the compute nodes pxe boot by getting bootloader from head node via NFS. SLURM is installed throughout the cluster for job schedulling.  
